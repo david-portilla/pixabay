@@ -3,7 +3,7 @@ import {useState} from 'react'
 import Error from './Error'
 
 
-const Form = () => {
+const Form = ({saveResult}) => {
   const [term, saveTerm] = useState('')
   const [error, setError] = useState(false)
 
@@ -17,7 +17,8 @@ const Form = () => {
     }
     setError(false)
 
-    // send term to api
+    // Make a search with the term to API
+    saveResult(term)
 
   }
 
