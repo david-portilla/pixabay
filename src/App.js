@@ -6,6 +6,8 @@ function App () {
 
   const [searchTerm, saveResult] = useState('')
   const [images, setImages] = useState([])
+  const [currentPAge, setCurrentPAge] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
 
   useEffect(() => {
 
@@ -14,10 +16,10 @@ function App () {
       const amountImage = 30
       const KEY = '20842004-1e614783a52a92aa8bd52a7d8'
       const URL = `https://pixabay.com/api/?key=${ KEY }&q=${ searchTerm }&per_page=${ amountImage }`
-
       const request = await fetch(URL)
       const response = await request.json()
       setImages(response.hits)
+      setTotalPages(Math.ceil(response.totalHits / amountImage))
     }
     requestApi()
   }, [searchTerm])
