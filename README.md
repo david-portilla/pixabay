@@ -1,6 +1,4 @@
-# pixabay
-
-# pixabayReact applicantion for searching images at Pixabay API
+# Pixabay React application to search free images at Pixabay
 
 ## Available Scripts
 
